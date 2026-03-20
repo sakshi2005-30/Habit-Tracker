@@ -3,8 +3,11 @@ import {Leaf} from "lucide-react";
 import Register from "../Register";
 import {Link} from "react-router"
 import { useState } from "react";
+import Login from "../Login";
 const Navbar = () => {
   const [showRegister,setShowRegister]=useState(false);
+  const [showLogin,setShowLogin]=useState(false);
+  const [showModal,setShowModal]=useState(null);
 
   return (
     <div className="fixed top-0 left-0 z-50 w-full">
@@ -24,6 +27,7 @@ const Navbar = () => {
               whileHover={{ color: "#74877c" }}
               transition={{ duration: 0.3 }}
               className="font-medium cursor-pointer"
+              onClick={() => setShowModal("login")}
             >
               Login
             </motion.button>
@@ -31,19 +35,28 @@ const Navbar = () => {
               whileHover={{ background: "#000000", scale: 1.05 }}
               transition={{ duration: 0.4 }}
               className="bg-emerald-800 px-8 py-2 text-white rounded-3xl cursor-pointer"
-              onClick={() => setShowRegister(true)}
+              onClick={() => setShowModal("register")}
             >
               Register
             </motion.button>
           </div>
         </div>
       </div>
-      {showRegister && (
-        <div
-          className="fixed inset-0 z-50 flex justify-center items-center bg-black/30 "
-         
-        >
-          <Register  onClose={() => setShowRegister(false)}/>
+      {showModal && (
+        <div className="fixed inset-0 flex justify-center items-center z-50 bg-black/30 ">
+          {showModal === "login" && (
+            <Login
+              onClose={() => setShowModal(null)}
+              switchToRegister={() => setShowModal("register")}
+            />
+          )}
+
+          {showModal === "register" && (
+            <Register
+              onClose={() => setShowModal(null)}
+              switchToLogin={() => setShowModal("login")}
+            />
+          )}
         </div>
       )}
     </div>

@@ -8,3 +8,6 @@ export const login=(data)=>{
 export const me=()=>{
     return api.get("/auth/me");
 }
+export const logout=()=>{
+    return api.get("/auth/logout");
+}

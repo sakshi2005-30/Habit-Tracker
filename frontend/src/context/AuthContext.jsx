@@ -10,7 +10,7 @@ const AuthProvider=({children})=>{
             setLoading(true);
              try{
                 const getMe=await me();
-               setUser(getMe);
+               setUser(getMe.data);
                setLoading(false);
             }
             catch(error){

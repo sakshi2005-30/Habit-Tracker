@@ -157,7 +157,7 @@ const Hero = () => {
           viewport={{ once: true }}
           className="text-xl font-medium flex justify-center items-center"
         >
-          Small habits <ArrowRight />
+          Small habits <ArrowRight className="w-5 h-5 mt-1 mx-1" />
           <span className="text-yellow-500"> Big results</span>
         </motion.p>
         <motion.p
@@ -181,7 +181,7 @@ const Hero = () => {
         </motion.button>
       </div>
       <hr className="mt-16 w-6xl mx-auto text-white/20"></hr>
-      <div className="text-center mt-8 text-gray-800">© 2026 Streakly</div>
+      <div className="text-center mt-8 text-white text-sm font-medium">© 2026 Streakly</div>
     </div>
   );
 }
