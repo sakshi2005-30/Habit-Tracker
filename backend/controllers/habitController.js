@@ -118,4 +118,18 @@ const habitAnalytics=async(req,res,next)=>{
         })
     }
 }
-module.exports={createHabit,getHabits,deleteHabit,habitComplete,habitAnalytics};
+const getCompletedHabits=async(req,res)=>{
+    try{
+        const completedHabits=await HabitLog.find(
+            {userId:req.user}
+        )
+        res.json(completedHabits);
+    }
+    catch(error){
+        console.log("Error in getting complted Habits");
+        res.status(500).json({
+            message:"Server error"
+        })
+    }
+}
+module.exports={createHabit,getHabits,deleteHabit,habitComplete,habitAnalytics,getCompletedHabits};

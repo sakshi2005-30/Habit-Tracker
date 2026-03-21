@@ -19,7 +19,7 @@ const Sidebar = () => {
 
    // console.log(username,email,profile)
   return (
-    <div className="max-w-60 w-full border  border-gray-200  ">
+    <div className="fixed bg-white w-60 border  border-gray-200  ">
       <div className="w-full flex flex-col min-h-screen">
         <div className="flex items-center py-2 px-4 border-b border-gray-200">
           <Leaf className="text-emerald-800 mr-2 w-8 h-8" />
