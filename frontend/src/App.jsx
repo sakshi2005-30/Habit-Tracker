@@ -1,6 +1,6 @@
 import Landing from "./pages/Landing/Landing"
 import { useContext } from "react"
-import {Routes,Route} from "react-router"
+import {Routes,Route,Navigate} from "react-router-dom"
 import { AuthContext } from "./context/AuthContext"
 import Login from "./pages/Login"
 import Register from "./pages/Register"
@@ -21,7 +21,7 @@ const App = () => {
         <Route path="/" element={<Landing/>}/>
         
 
-        <Route path="/dashboard" element={user &&<DashboardLayout/>}>
+        <Route path="/dashboard" element={user?<DashboardLayout/>:<Navigate to="/"/>}>
         <Route index element={<Dashboard/>}/>
         <Route path="habits" element={<Habits/>}/>
         <Route path="analytics" element={<Analytics/>}/>

@@ -15,3 +15,6 @@ export const completeHabit=(id)=>{
 export const getCompletedHabit=()=>{
     return api.get("/habit/getCompleted");
 }
+export const habitAnalytics=()=>{
+    return api.get("/habit/analytics");
+}
